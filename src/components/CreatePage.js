@@ -1,23 +1,23 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function CreatePage() {
     const [originalUrl, setOriginalUrl] = useState('');
-    const [shortenedUrl, setShortenedUrl] = useState('');
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
-        setShortenedUrl('');
         setIsLoading(true);
 
         try {
             const response = await axios.post('/api/urls', {
                 url: { original_url: originalUrl },
             });
-            setShortenedUrl(response.data.short_url);
+            navigate(`/links/${response.data.slug}`);
         } catch (err) {
             setError(err.response?.data?.error || 'Something went wrong');
         } finally {
@@ -47,9 +47,7 @@ function CreatePage() {
                     <button
                         type="submit"
                         disabled={isLoading}
-                        className={`w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                            isLoading ? 'opacity-50 cursor-not-allowed' : ''
-                        }`}
+                        className={`w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
                     >
                         {isLoading ? 'Shortening...' : 'Shorten URL'}
                     </button>
@@ -57,14 +55,6 @@ function CreatePage() {
                 {error && (
                     <div className="mt-4 p-3 bg-red-100 text-red-700 rounded-md">
                         {error}
-                    </div>
-                )}
-                {shortenedUrl && (
-                    <div className="mt-4 p-3 bg-green-100 text-green-700 rounded-md">
-                        Shortened URL:{' '}
-                        <a href={shortenedUrl} className="underline" target="_blank" rel="noopener noreferrer">
-                            {shortenedUrl}
-                        </a>
                     </div>
                 )}
             </div>
