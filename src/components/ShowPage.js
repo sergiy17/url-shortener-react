@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
 function ShowPage() {
@@ -59,7 +59,7 @@ function ShowPage() {
 
     return (
         <div className='min-h-screen bg-gray-100 flex items-center justify-center'>
-            <div className='bg-white p-8 rounded-lg shadow-lg w-full max-w-md'>
+            <div className='bg-white p-8 rounded-lg shadow-lg w-full max-w-fit'>
                 <h1 className='text-2xl font-bold text-center mb-6'>Shortened URL Details</h1>
                 <div className='space-y-4'>
                     <div>
@@ -108,13 +108,12 @@ function ShowPage() {
                         </p>
                     </div>
                     <div>
-                        <label className='block text-sm font-medium text-gray-700'>Active</label>
                         <p className='mt-1'>
-              <span
-                  className={`inline-block py-1 px-3 rounded-full text-white ${urlData.is_active ? 'bg-green-600' : 'bg-red-600'}`}
-              >
-                {urlData.is_active ? 'Active' : 'Inactive'}
-              </span>
+                          <span
+                            className={`inline-block py-1 px-3 rounded-full text-white ${urlData.is_active ? 'bg-green-600' : 'bg-red-600'}`}
+                          >
+                              {urlData.is_active ? 'Active' : 'Inactive'}
+                          </span>
                         </p>
                     </div>
                 </div>
@@ -122,16 +121,22 @@ function ShowPage() {
                     <button
                         type='button'
                         onClick={handleDelete}
-                        className='w-full py-2 px-4 bg-red-600 text-white rounded-md hover:bg-red-700'
+                        className='flex-1 py-2 px-4 bg-red-600 text-white rounded-md hover:bg-red-700'
                     >
                         Delete URL
                     </button>
-                    <a
-                        href='/'
-                        className='w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-center'
+                    <Link
+                        to='/'
+                        className='flex-1 py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-center'
                     >
                         Shorten Another URL
-                    </a>
+                    </Link>
+                    <Link
+                        to='/links'
+                        className='flex-1 py-2 px-4 bg-gray-600 text-white rounded-md hover:bg-gray-700 text-center vertical-align'
+                    >
+                        Back to All URLs
+                    </Link>
                 </div>
             </div>
         </div>
