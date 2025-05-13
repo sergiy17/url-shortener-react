@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# URL Shortener | ReactJS
+Analogue to https://bitly.com.
+The main idea is - users will be able to save a long link and use a shortened version instead.
+Basically visiting the shortened link will redirect you to the original one.
+Apart from the main functionality the link owner will be able to collect the statistics about how many visits that link had. 
+The short link will not be accessible after 1 month from the last visit etc
+<details>
+  
+  <summary>Project setup and start</summary>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Clone the repo with `git clone https://github.com/sergiy17/url-shortener-react.git`
+2. Install dependencies `npm install`
+3. `npm start`
+</details>
 
-## Available Scripts
+<details>
+  <summary>Requests examples and screenshots</summary>
 
-In the project directory, you can run:
+Links list page
+```
+GET to http://localhost:3006/links
+```
 
-### `npm start`
+<img width="1312" alt="Image" src="https://github.com/user-attachments/assets/c0155b6a-18b4-427a-98c8-aa64835d7255" />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+same page with pagination
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<img width="1309" alt="Image" src="https://github.com/user-attachments/assets/839848a6-caff-426c-b01a-5538bfc43cba" />
 
-### `npm test`
+Links show page
+```
+GET to http://localhost:3006/links/SOME_SLUG
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img width="1309" alt="Image" src="https://github.com/user-attachments/assets/24883d17-fe67-49f5-9bfc-12698e9cf0b7" />
 
-### `npm run build`
+New Shortened URL page
+```
+GET to http://localhost:3006
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img width="1298" alt="Image" src="https://github.com/user-attachments/assets/4ed3174f-1036-441c-a223-05f8f9b61b63" />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</details>
